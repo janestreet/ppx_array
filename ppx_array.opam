@@ -12,7 +12,6 @@ build: [
 ]
 depends: [
   "ocaml" {>= "5.1.0"}
-  "base"
   "ppx_array_base"
   "ppx_helpers"
   "ppx_template"
@@ -20,7 +19,7 @@ depends: [
   "dune"           {>= "3.17.0"}
   "ppxlib"         {>= "0.33.0" & < "0.36.0"}
 ]
-available: arch != "arm32" & arch != "x86_32"
+available: arch != "x86_32"
 synopsis: "Copies array functions for unboxed types so they can be compiled for the type's specific layout."
 description: "
 This deriving PPX rewriter is used internally at Jane Street to allow unboxed types to use common array functions. The deriver copies array functions under unboxed types so they can be compiled for the type's specific layout. It is used to simulate layout polymorphism until it is supported first class by the compiler. The long-term goal is thus to delete it entirely.
